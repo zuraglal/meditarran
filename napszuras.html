@@ -223,5 +223,13 @@ span.M { background-color:green; }              span.TM { color:#779933; }  /*@ 
       .replaceAll(/<(I[UV])>(.*?)<\/\1>/gsi, function(m, p1, p2) { return '<span class=' + p1 + 'C>' + p2 + '</span>'; })
       .replaceAll(/@([A-Z0-9])/g, function(m, p1) { return '<span class="sp ' + p1 + '">' + roles[p1] + '</span>'; })
       );
+  document.addEventListener('play', function(e){  
+      var audios = document.getElementsByTagName('audio');  
+      for(var i = 0, len = audios.length; i < len;i++){  
+          if(audios[i] != e.target){  
+              audios[i].pause();  
+          }  
+      }  
+  }, true);
 </script>
 </html>
